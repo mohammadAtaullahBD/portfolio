@@ -1,70 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ataullah | Portfolio</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <!-- Custom Animations -->
+  <style>
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center p-6 bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
-    <h1 class="text-5xl font-bold mb-4">Hi, I’m Ataullah 👋</h1>
-    <p class="text-xl mb-6">Student | Developer | Future Roboticist</p>
-    <a href="#projects" class="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-full shadow hover:bg-gray-200 transition">See My Work</a>
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .animate-spin-slow {
+      animation: spin-slow 20s linear infinite;
+    }
+
+    @keyframes blob {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .animate-blob {
+      animation: blob 7s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans">
+
+  <!-- Dark Mode Toggle Button -->
+  <button id="theme-toggle"
+    class="fixed top-4 right-4 z-50 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 p-2 rounded-full shadow hover:scale-105 transition"
+    aria-label="Toggle dark mode">
+    🌙
+  </button>
+
+    <!-- HERO Section --> 
+  <section
+  class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden
+    bg-gradient-to-r from-emerald-500 to-emerald-900
+    dark:from-neutral-900 dark:via-gray-800 dark:to-slate-700 text-gray-900 dark:text-white">
+  <!-- Decorative Blobs -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden z-0">
+    <div class="absolute -top-10 -left-10 w-56 h-56 rounded-full bg-blue-300 dark:bg-indigo-600 mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
+    <div class="absolute -bottom-20 -right-10 w-72 h-72 rounded-full bg-purple-200 dark:bg-purple-500 mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+    <div class="absolute top-1/3 right-24 w-40 h-40 rounded-full bg-pink-200 dark:bg-pink-500 mix-blend-multiply filter blur-2xl opacity-60 animate-spin-slow"></div>
+  </div>
+ 
+
+    <!-- Main Content -->
+    <div class="relative z-20 max-w-4xl mx-auto w-full">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12">
+        <!-- Avatar -->
+        <div class="flex-shrink-0">
+          <div class="w-40 h-40 rounded-full bg-white shadow-xl ring-4 ring-purple-300 overflow-hidden">
+            <img src="ataullah.jpg" alt="Md Ataullah" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <!-- Intro Text -->
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Hi, I'm <span class="text-yellow-300">Md Ataullah 👋</span>
+          </h1>
+          <p class="mt-3 text-lg md:text-xl dark:text-white/90 max-w-xl">
+            Student • Developer • Tech Enthusiast • Problem Solver • Future Roboticist
+          </p>
+          <div class="mt-6 flex justify-center md:justify-start gap-4">
+            <a href="#projects"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-700 font-semibold rounded-full shadow hover:scale-105 transition">
+              🚀 See My Work
+            </a>
+            <a href="#about"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-700 font-semibold rounded-full shadow hover:scale-105 transition">
+              About Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative SVG Wave -->
+    <svg class="absolute bottom-0 left-0 w-full h-36 md:h-48 text-gray-50 dark:text-gray-900 z-10"
+      viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,160L1440,32L1440,320L0,320Z"></path>
+    </svg>
   </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-4xl mx-auto py-20 px-6">
-    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+  <!-- About Section -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-6 dark:bg-gray-900">
+    <h2 class="text-3xl font-bold mb-6">👨 About Me</h2>
     <p class="text-lg leading-relaxed">
-      I’m a Class 12 student from Bangladesh passionate about robotics, AI, and software development.
-      Skilled in Python, C++, Flutter, and web technologies, I enjoy building impactful projects that merge innovation with practicality.
+      I’m a Class 12 student from Bangladesh, passionate Flutter and full-stack developer with experience building apps,
+      solving problems, and exploring robotics and AI. I enjoy creating solutions that improve productivity and bring
+      ideas to life. I occasionally solve programming challenges to sharpen my problem-solving skills.
     </p>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="bg-gray-100 py-20 px-6">
+  <!-- Skills Section -->
+  <section id="skills" class="bg-gray-100 dark:bg-gray-800 py-20 px-6">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Skills</h2>
+      <h2 class="text-3xl font-bold mb-6">🛠 Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="p-4 bg-white shadow rounded">Python</div>
-        <div class="p-4 bg-white shadow rounded">C / C++</div>
-        <div class="p-4 bg-white shadow rounded">Flutter</div>
-        <div class="p-4 bg-white shadow rounded">Web Dev</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">Python</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">C / C++</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">Dart</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">Flutter</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">JavaScript</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">HTML & CSS</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">Kotlin</div>
+        <div class="p-4 bg-white dark:bg-gray-700 shadow rounded">Java</div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="max-w-4xl mx-auto py-20 px-6">
-    <h2 class="text-3xl font-bold mb-6">Projects</h2>
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-4xl mx-auto py-20 px-6 dark:bg-gray-900">
+    <h2 class="text-3xl font-bold mb-6">🚀 Projects</h2>
     <div class="grid md:grid-cols-2 gap-6">
-      <div class="p-6 bg-white shadow rounded">
-        <h3 class="text-xl font-semibold mb-2">Handwriting-to-Font Generator</h3>
-        <p class="text-gray-600">A service to create custom Bangla fonts from handwriting samples.</p>
+      <!-- Project Cards -->
+      <div class="card p-6 bg-white dark:bg-gray-700 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">REST API Package (Flutter)</h3>
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://pub.dev/packages/restapi_services" target="_blank">View on Pub.dev</a>
       </div>
-      <div class="p-6 bg-white shadow rounded">
-        <h3 class="text-xl font-semibold mb-2">Robotics Experiments</h3>
-        <p class="text-gray-600">Early work on robots for folding clothes and environmental cleaning.</p>
+      <div class="card p-6 bg-white dark:bg-gray-700 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">To-Do App</h3>
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/mohammadAtaullahBD/todos_flutter_bloc" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card p-6 bg-white dark:bg-gray-700 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">Jarvis</h3>
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/mohammadAtaullahBD/jarvis" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card p-6 bg-white dark:bg-gray-700 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">Tic-Tac-Toe</h3>
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/mohammadAtaullahBD/tik_tak_toe" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card p-6 bg-white dark:bg-gray-700 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">Calculator</h3>
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/mohammadAtaullahBD/flutterClaclutor" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card p-6 bg-white dark:bg-gray-700 shadow rounded">
+        <h3 class="text-xl font-semibold mb-2">Web Dev Practice</h3>
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/mohammadAtaullahBD/project_7" target="_blank">View on GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-gray-900 text-white py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
-    <p class="mb-4">Email: <a href="mailto:hello@ataullah.dev" class="underline">contact@ataullah.dev</a></p>
-    <p>GitHub: <a href="https://github.com/mohammadAtaullahBD" class="underline">github.com/mohammadAtaullahBD</a></p>
+  <!-- Problem Solving Section -->
+  <section id="problem" class="bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto py-20 px-6">
+      <h2 class="text-3xl font-bold mb-6">💡 Problem Solving</h2>
+      <p>
+        I occasionally solve programming challenges on
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://toph.co" target="_blank">Toph</a>
+        to improve my skills.
+      </p>
+    </div>
   </section>
 
-  <footer class="bg-gray-800 text-gray-400 text-center py-4">
-    © <span id="year"></span> Ataullah. All rights reserved.
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-900 dark:bg-black text-white">
+    <div class="max-w-4xl mx-auto py-20 px-6">
+      <h2 class="text-3xl font-bold mb-6">💬 Contact Me</h2>
+      <p class="mb-4">
+        Email:
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="mailto:contact@ataullah.dev">contact@ataullah.dev</a>
+      </p>
+      <p>
+        GitHub:
+        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          href="https://github.com/mohammadAtaullahBD">github.com/mohammadAtaullahBD</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 dark:bg-gray-950 text-gray-400 text-center py-4">
+    © <span id="year">2025</span> Ataullah. All rights reserved.
   </footer>
 
+  <!-- Scripts -->
   <script>
+    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+    // Dark mode toggle logic
+    const toggleBtn = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+
+    // Load saved preference
+    if (localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      root.classList.add("dark");
+      toggleBtn.textContent = "☀️";
+    } else {
+      root.classList.remove("dark");
+      toggleBtn.textContent = "🌙";
+    }
+
+    // Toggle on click
+    toggleBtn.addEventListener("click", () => {
+      if (root.classList.contains("dark")) {
+        root.classList.remove("dark");
+        localStorage.theme = "light";
+        toggleBtn.textContent = "🌙";
+      } else {
+        root.classList.add("dark");
+        localStorage.theme = "dark";
+        toggleBtn.textContent = "☀️";
+      }
+    });
+  </script>
 </body>
+
 </html>
